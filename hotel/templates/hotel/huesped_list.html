@@ -28,7 +28,7 @@
           <th scope="col">Email</th>
           <th scope="col">dni</th>
           <th scope="col">Fecha de Nacimiento</th>
-        </tr>
+          <th scope="col">Acciones</th> </tr>
       </thead>
       <tbody>
         {% for huesped in huespedes %}
@@ -39,15 +39,18 @@
           <td>{{ huesped.email }}</td>
           <td>{{ huesped.dni }}</td>
           <td>{{ huesped.fecha_de_nacimiento|date:"d/m/Y" }}</td>
+          <td>
+            <div class="d-flex gap-2">
+              <a href="{% url 'modificar_huesped' huesped.dni %}" class="btn btn-warning btn-sm">Modificar</a>
+              <a href="{% url 'eliminar_huesped' huesped.dni %}" class="btn btn-danger btn-sm">Eliminar</a>
+              </div>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-  </div>
-  {% else %}
-  <div class="alert alert-info text-center mt-4">
-    No hay huespedes registrados aún.
-  </div>
-  {% endif %}
-</div>
-{% endblock %}
+  </div> {% else %}
+  <p class="alert alert-warning mt-4">No hay huéspedes registrados.</p>
+{% endif %} ```
+
+</div> {% endblock %}

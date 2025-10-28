@@ -1,0 +1,38 @@
+{% extends "hotel/index.html" %} 
+{% block title %}Listado de Habitaciones{% endblock %}
+
+{% block contenido %}
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Listado de Habitaciones</h2>
+        <a href="{% url 'habitacion_create' %}" class="btn btn-primary"> Nueva Habitación</a>
+    </div>
+
+    {% if habitaciones %} 
+        <p>Tabla de habitaciones cargada correctamente.</p> 
+        
+        <table class="table table-striped">
+            <thead class="table-primary">
+                <tr><th>Número</th><th>Tipo</th><th>Acciones</th></tr>
+            </thead>
+            <tbody>
+                {% for habitacion in habitaciones %}
+                <tr>
+                    <td>{{ habitacion.numero }}</td>
+                    <td>{{ habitacion.get_tipo_display }}</td>
+                    <td>
+                        <a href="{% url 'habitacion_detail' pk=habitacion.pk %}" class="btn btn-sm btn-success">Ver</a>
+                        <a href="{% url 'habitacion_update' pk=habitacion.pk %}" class="btn btn-sm btn-info">Editar</a>
+                        <a href="{% url 'confirm_delete' pk=habitacion.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    {% else %}
+        <p class="alert alert-warning mt-4">No hay habitaciones registradas.</p>
+    {% endif %}
+
+</div> 
+{% endblock %}

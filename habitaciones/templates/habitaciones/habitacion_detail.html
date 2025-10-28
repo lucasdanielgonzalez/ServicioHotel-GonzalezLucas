@@ -1,0 +1,29 @@
+{% extends "hotel/index.html" %} 
+{% block title %}Detalle de Habitación{% endblock %}
+
+{% block contenido %}
+<div class="container my-5">
+    <h2>Detalle de Habitación Nro. {{ habitacion.numero }}</h2>
+    
+    <div class="card">
+        <div class="card-header">
+            Información Principal
+        </div>
+        <div class="card-body">
+            <p><strong>Tipo:</strong> {{ habitacion.get_tipo_display }}</p>
+            <p><strong>Máx. Huéspedes:</strong> {{ habitacion.max_huespedes }}</p>
+            <p><strong>Precio por Noche:</strong> ${{ habitacion.precio_noche }}</p>
+            <p><strong>Disponible:</strong> 
+                {% if habitacion.disponible %} 
+                    Sí, lista para rentar.
+                {% else %} 
+                    No, ocupada o en mantenimiento.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    
+    <a href="{% url 'habitacion_update' pk=habitacion.pk %}" class="btn btn-info mt-3">Editar Habitación</a>
+    <a href="{% url 'habitacion_list' %}" class="btn btn-secondary mt-3">Volver al Listado</a>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "hotel/index.html" %} 
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block contenido %}
+<div class="container my-5">
+    <h2>Confirmar Eliminación</h2>
+    <p class="alert alert-danger">
+        ¿Estás seguro de que quieres eliminar la Habitación 
+        <strong>Nro. {{ object.numero }}</strong> ({{ object.get_tipo_display }})?
+    </p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+        <a href="{% url 'habitacion_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
