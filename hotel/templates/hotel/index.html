@@ -47,9 +47,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <a class="nav-link" href="{% url 'about' %}">Acerca de Mí</a>
                     <li class="nav-item"><a class="nav-link" href="{% url 'huesped_list' %}">Huesped</a></li>
-                    <a class="nav-link" href="{% url 'habitacion_create' %}">Nueva Habitación</a>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'habitacion_create' %}">Nueva Habitación</a></li>
+                    {% if user.is_authenticated %}
+                     <li class="nav-item">
+                      <a class="nav-link" href="{% url 'profile_edit' %}">Perfil</a>
+                      </li>
+                     <li class="nav-item d-flex align-items-center">
+                        <form action="{% url 'logout' %}" method="post" class="d-inline">
+                          {% csrf_token %}
+                          <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration: none; color: white;">Cerrar sesión
+                           </button>
+                        </form>
+                    </li>
+                     {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrarse</a></li>
+                     {% endif %}
                 </ul>
             </div>
         </div>
@@ -60,7 +75,7 @@
         <div class="container">
             <h1 class="display-4 fw-bold">Bienvenido a Hotel Paraíso</h1>
             <p class="lead">Tu lugar de descanso ideal. Comodidad, elegancia y el mejor servicio.</p>
-            <a href="#" class="btn btn-light btn-lg">Reservar Ahora</a>
+            <!--<a href="#" class="btn btn-light btn-lg">Reservar Ahora</a>!-->
         </div>
     </section>
 

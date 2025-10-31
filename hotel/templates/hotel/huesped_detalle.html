@@ -1,0 +1,54 @@
+{% extends "hotel/index.html" %} 
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mb-4">Detalle del Huésped: {{ huesped.nombre }} {{ huesped.apellido }}</h2>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    Información Personal
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>ID:</strong> {{ huesped.id }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Nombre:</strong> {{ huesped.nombre }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Apellido:</strong> {{ huesped.apellido }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>DNI:</strong> {{ huesped.dni }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Fecha de Nacimiento:</strong> {{ huesped.fecha_de_nacimiento|date:"d/m/Y" }}
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card shadow-sm mt-4">
+                <div class="card-header bg-secondary text-white">
+                    Datos de Contacto
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Email:</strong> {{ huesped.email }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Teléfono:</strong> {{ huesped.telefono }}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-4">
+                <a href="{% url 'huesped_list' %}" class="btn btn-secondary me-2">Volver a la Lista</a>
+                
+                <a href="{% url 'modificar_huesped' huesped.dni %}" class="btn btn-warning">Modificar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

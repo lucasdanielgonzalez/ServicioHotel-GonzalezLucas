@@ -1,0 +1,61 @@
+{% extends "hotel/index.html" %}
+{% load static %}
+
+{% block titulo %}Editar Perfil{% endblock %}
+
+{% block contenido %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 p-4">
+                <h2 class="text-center mb-4">✍️ Editar Perfil</h2>
+
+                <form method="post" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.avatar.label }}</label>
+                        {% if user.avatar %}
+                            <p>Actual: <img src="{{ user.avatar.url }}" width="50" class="rounded-circle"></p>
+                        {% endif %}
+                        {{ form.avatar }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.username.label }}</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.email.label }}</label>
+                        {{ form.email }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.direccion.label }}</label>
+                        {{ form.direccion }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.pais.label }}</label>
+                        {{ form.pais }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ form.fecha_de_nacimiento.label }}</label>
+                        {{ form.fecha_de_nacimiento }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+                    <a href="{% url 'profile_detail' %}" class="btn btn-outline-secondary mt-3">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}
