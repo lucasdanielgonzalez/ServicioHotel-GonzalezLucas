@@ -8,5 +8,5 @@ urlpatterns= [
     path('huesped/nuevo',crear_huesped, name='huesped_form'),
     path('huesped/',lista_huesped, name='huesped_list'),
     path ('huesped/<int:dni>/eliminar' , eliminar_huesped , name='eliminar_huesped'),
-    path ('huesped/<int:dni>/modificar', modificar_huesped , name='modificar_huesped')
+    path ('huesped/<int:dni>/modificar', modificar_huesped , name='modificar_huesped'),
 ]

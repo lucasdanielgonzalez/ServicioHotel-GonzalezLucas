@@ -58,4 +58,7 @@ def modificar_huesped(request ,dni):
         form = HuespedForm(instance=huespedes)
     
     return render(request, 'hotel/huesped_form.html',{'form': form, 'edicion': True} )
+
+
+
                                                    
