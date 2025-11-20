@@ -3,11 +3,7 @@ cuenta con la pagina principal y que contiene informacion sobre mi , listado del
 CRUD O UN ABM !!!!
 ![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/inicio.png?raw=true)
 ![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/Inicio2.png?raw=true)
-![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/a%20cerca%20de%20mi.png?raw=true)
-![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/listado-huesped.png?raw=true)
-![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/registrar-huesped.png?raw=true)
-![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/crear-cuenta.png?raw=true)
-![Image Alt](https://github.com/lucasdanielgonzalez/ServicioHotel-GonzalezLucas/blob/main/iniciar-sesion.png?raw=true)
+
 
 
 
